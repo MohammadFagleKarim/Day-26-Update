@@ -1,0 +1,104 @@
+﻿@model List<Signature.Model.Model.Product>
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Show</h2>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+
+    <form method="post">
+        <table>
+            <tr>
+                <td>Category</td>
+                <td><input type="text" name="Category" /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Code</td>
+                <td><input type="text" name="Code" /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" name="Name" /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>ReorderLevel</td>
+                <td><input type="text" name="ReorderLevel" /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td><input type="text" name="Description" /></td>
+                <td></td>
+            </tr>
+            <tr>
+
+                <td></td>
+                <td><input type="submit" value="Search" /></td>
+                <td>
+                    @if (ViewBag.Message != null)
+                    {
+                        <h3>
+                            <b>
+                                @ViewBag.Message
+                            </b>
+                        </h3>
+                    }
+
+                </td>
+            </tr>
+
+        </table>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <td>SL</td>
+                <td>Category</td>
+                <td>Code</td>
+                <td>Name</td>
+                <td>ReorderLevel</td>
+                <td>Description</td>
+            </tr>
+        </thead>
+        <tbody>
+            @{int sl = 1;}
+            @foreach (var supplier in Model)
+            {
+                <tr>
+                    <td>@(sl++)</td>
+                    <td>@supplier.CategoryId</td>
+                    <td>@supplier.Code</td>
+                    <td>@supplier.Name</td>
+                    <td>@supplier.ReorderLevel</td>
+                    <td>@supplier.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
+

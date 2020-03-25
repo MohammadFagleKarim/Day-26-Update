@@ -1,0 +1,116 @@
+﻿@model List<Signature.Model.Model.Supplier>
+@{
+    ViewBag.Title = "Show";
+}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+
+
+            tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+        </style>
+    </head>
+
+    <body>
+
+    <h2>Show</h2>
+    <form method="post">
+        <table>
+            <tr>
+                <td>Code</td>
+                <td><input type="text" name="Code"/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" name="Name"/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><input type="text" name="Address" /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Conatact</td>
+                <td><input type="text" name="Contact"/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" name="Email"/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Contact Person</td>
+                <td><input type="text" name="Contact_Person"/></td>
+                <td></td>
+            </tr>
+            <tr>
+
+                <td></td>
+                <td><input type="submit" value="Search" /></td>
+                <td>
+                    @if (ViewBag.Message != null)
+                    {
+                        <h3>
+                            <b>
+                                @ViewBag.Message
+                            </b>
+                        </h3>
+                    }
+
+                </td>
+            </tr>
+
+        </table>
+    </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <td>SL</td>
+                    <td>Code</td>
+                    <td>Name</td>
+                    <td>Address</td>
+                    <td>Contact</td>
+                    <td>Email</td>
+                    <td>Contact Person</td>
+                </tr>
+            </thead>
+            <tbody>
+            @{int sl=1;}
+            @foreach (var supplier in Model)
+            {
+                <tr>
+                    <td>@(sl++)</td>
+                    <td>@supplier.Code</td>
+                    <td>@supplier.Name</td>
+                    <td>@supplier.Address</td>
+                    <td>@supplier.Contact</td>
+                    <td>@supplier.Email</td>
+                    <td>@supplier.Contact_Person</td>
+                </tr>
+            }
+
+
+            </tbody>
+        </table>
+    </body>
+</html>

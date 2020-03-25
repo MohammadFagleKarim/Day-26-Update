@@ -1,0 +1,86 @@
+﻿@model Signature.Model.Model.Supplier
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add</h2>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <form method="post">
+        <table>
+            <tr>
+                <td>Code</td>
+                <td><input type="text" name="Code" value="@Model.Code" /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" name="Name" value="@Model.Name" /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><input type="text" name="Address" value="@Model.Address" /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Conatact</td>
+                <td><input type="text" name="Contact" value="@Model.Contact" /></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" name="Email" value="@Model.Email"/></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Contact Person</td>
+                <td><input type="text" name="Contact_Person" value="@Model.Contact_Person" /></td>
+                <td></td>
+            </tr>
+            <tr>
+
+                <td></td>
+                <td><input type="submit" value="Save" /></td>
+                <td>
+                    @if (ViewBag.Message != null)
+                    {
+                        <h3>
+                            <b>
+                                @ViewBag.Message
+                            </b>
+                        </h3>
+                    }
+
+                </td>
+            </tr>
+
+        </table>
+    </form>
+</div>
+</body>
+</html>
+
